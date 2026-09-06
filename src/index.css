@@ -1,0 +1,374 @@
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #172033;
+  background: #eef3f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.app-shell {
+  display: grid;
+  min-height: 100vh;
+  place-items: start center;
+  padding: 64px 20px;
+  background:
+    radial-gradient(circle at top left, #dbeafe 0, transparent 36%),
+    radial-gradient(circle at bottom right, #ccfbf1 0, transparent 32%),
+    #eef3f8;
+}
+
+.page-content {
+  width: min(100%, 760px);
+}
+
+.weather-section {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.weather-box {
+  min-height: 76px;
+  border: 1px solid #dbe3ee;
+  border-radius: 16px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(38, 55, 82, 0.08);
+}
+
+.weather-box h2,
+.weather-box p {
+  margin: 0;
+}
+
+.weather-box h2 {
+  font-size: 1rem;
+}
+
+.weather-information {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.weather-information p {
+  margin-top: 4px;
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+
+.weather-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.clothing-advice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clothing-advice p {
+  margin-top: 5px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.todo-card {
+  width: min(100%, 760px);
+  overflow: hidden;
+  border: 1px solid #dbe3ee;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 70px rgba(38, 55, 82, 0.14);
+}
+
+.app-header {
+  padding: 40px 44px 28px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb 60%, #0f766e);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1;
+}
+
+.app-header p:last-child {
+  max-width: 520px;
+  margin: 14px 0 0;
+  color: #dbeafe;
+  line-height: 1.55;
+}
+
+.todo-form {
+  padding: 32px 44px 16px;
+}
+
+.todo-form > label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 750;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.form-row input {
+  width: 100%;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 13px 14px;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.form-row input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px #dbeafe;
+}
+
+.form-row input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.form-row button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0 22px;
+  color: #ffffff;
+  background: #1d4ed8;
+  font-weight: 750;
+}
+
+.form-row button:hover:not(:disabled) {
+  background: #1e40af;
+}
+
+.validation-error {
+  margin: 8px 0 0;
+  color: #b91c1c;
+  font-size: 0.92rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 44px 20px;
+}
+
+.filter-group button {
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: #475569;
+  background: #ffffff;
+  font-weight: 700;
+}
+
+.filter-group button:hover {
+  border-color: #2563eb;
+  color: #1d4ed8;
+}
+
+.filter-group button.active {
+  border-color: #1d4ed8;
+  color: #ffffff;
+  background: #1d4ed8;
+}
+
+.status-message,
+.empty-message {
+  margin: 8px 44px 24px;
+  border-radius: 12px;
+  padding: 18px;
+  color: #475569;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.status-message.error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: #991b1b;
+  background: #fef2f2;
+  text-align: left;
+}
+
+.retry-button {
+  flex: none;
+  border: 1px solid #fca5a5;
+  border-radius: 9px;
+  padding: 7px 11px;
+  color: #991b1b;
+  background: #ffffff;
+  font-weight: 700;
+}
+
+.todo-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 44px 28px;
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 15px 16px;
+  background: #ffffff;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.todo-item:hover {
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.task-label input {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: #1d4ed8;
+}
+
+.completed .task-label span {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  flex: none;
+  border: 0;
+  border-radius: 9px;
+  padding: 8px 11px;
+  color: #b91c1c;
+  background: #fef2f2;
+  font-weight: 700;
+}
+
+.delete-button:hover {
+  color: #ffffff;
+  background: #dc2626;
+}
+
+.todo-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  border-top: 1px solid #e2e8f0;
+  padding: 20px 44px;
+  color: #64748b;
+  background: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 20px 12px;
+  }
+
+  .todo-card {
+    border-radius: 18px;
+  }
+
+  .weather-section {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .app-header,
+  .todo-form {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .filter-group,
+  .todo-list {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .status-message,
+  .empty-message {
+    margin-right: 22px;
+    margin-left: 22px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row button {
+    min-height: 46px;
+  }
+
+  .todo-item {
+    align-items: flex-start;
+  }
+
+  .delete-button {
+    margin-top: -3px;
+  }
+}

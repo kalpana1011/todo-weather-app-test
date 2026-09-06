@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Förbered presentation",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "title": "Rätta inlämningar",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "title": "Planera nästa lektion",
+      "completed": false
+    },
+    {
+      "title": "Unit Test",
+      "completed": false,
+      "id": "dBlizJIiV50"
+    },
+    {
+      "title": "Component Test",
+      "completed": false,
+      "id": "cRJ69vh5gmw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
