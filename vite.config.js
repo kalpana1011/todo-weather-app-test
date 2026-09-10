@@ -6,12 +6,12 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
-    setupFiles: "./src/test/setup.js",
+    setupFiles: "./vitest.setup.js",
     coverage: {
       provider: "v8",
       include: ["src/**/*.{js,jsx}"],
       exclude: [
-        "src/test/**",
+        "msw/**",
         "src/**/__tests__/**",
         "src/main.jsx",
       ],

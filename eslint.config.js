@@ -43,7 +43,7 @@ export default [
     },
   },
   {
-    files: ["**/*.{test,spec}.{js,jsx}", "src/test/**/*.js"],
+    files: ["**/*.{test,spec}.{js,jsx}", "vitest.setup.js", "msw/**/*.js"],
     languageOptions: {
       globals: {
         ...globals.browser,
