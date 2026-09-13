@@ -1,6 +1,6 @@
 # React Todo-app
 
-En enkel Todo-app med React, Vite och JSON Server. Appen innehåller inga tester eller testverktyg.
+En enkel Todo-app med React, Vite och JSON Server. Appen visar även väder för Stockholm från Open-Meteo.
 
 ## Funktioner
 
@@ -15,9 +15,7 @@ En enkel Todo-app med React, Vite och JSON Server. Appen innehåller inga tester
 - Visa aktuellt väder för Stockholm
 - Visa ett enkelt klädtips utifrån temperatur och väder
 
-## Starta appen
-
-Installera först paketen:
+## Installera och starta
 
 ```bash
 npm install
@@ -35,11 +33,34 @@ Starta React-appen i en andra terminal:
 npm run dev
 ```
 
-Öppna adressen som Vite visar, vanligtvis:
+Öppna adressen som Vite visar, vanligtvis `http://localhost:5173`.
 
-```text
-http://localhost:5173
+## Tester
+
+```bash
+npm test              # alla Vitest-tester (unit, component, MSW)
+npm run test:coverage # täckningsrapport → coverage/index.html
+npm run lint          # ESLint
 ```
+
+### Senaste resultat (2026-09-13)
+
+| Kommando | Resultat |
+|---|---|
+| `npm test` | 8 filer, **46 tester** — alla gröna |
+| `npm run lint` | Inga fel |
+
+Testnivåer:
+
+- **Unit:** `taskUtils`, `weatherUtils` (23 tester)
+- **Component (RTL):** `TodoForm`, `TodoItem`, `TodoList` (10 tester)
+- **Integration (MSW):** `taskApi`, `weatherApi`, `WeatherSection` (13 tester)
+
+Mer dokumentation finns i [`Documentation/`](Documentation/):
+
+- [`Test-Plan.md`](Documentation/Test-Plan.md)
+- [`Manual-Test-Cases.md`](Documentation/Manual-Test-Cases.md)
+- [`Test-Analysis-Report.md`](Documentation/Test-Analysis-Report.md)
 
 ## A/B-variant
 
