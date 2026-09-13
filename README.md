@@ -40,7 +40,14 @@ npm run dev
 ```bash
 npm test              # alla Vitest-tester (unit, component, MSW)
 npm run test:coverage # täckningsrapport → coverage/index.html
+npm run test:e2e      # Playwright E2E (startar JSON Server + Vite automatiskt)
 npm run lint          # ESLint
+```
+
+För E2E, installera Chromium en gång:
+
+```bash
+npx playwright install chromium
 ```
 
 ### Senaste resultat (2026-09-13)
@@ -48,6 +55,7 @@ npm run lint          # ESLint
 | Kommando | Resultat |
 |---|---|
 | `npm test` | 8 filer, **46 tester** — alla gröna |
+| `npm run test:e2e` | 3 E2E-tester (create, filter, live väder) |
 | `npm run lint` | Inga fel |
 
 Testnivåer:
@@ -55,6 +63,7 @@ Testnivåer:
 - **Unit:** `taskUtils`, `weatherUtils` (23 tester)
 - **Component (RTL):** `TodoForm`, `TodoItem`, `TodoList` (10 tester)
 - **Integration (MSW):** `taskApi`, `weatherApi`, `WeatherSection` (13 tester)
+- **E2E (Playwright):** `e2e/*.spec.js` — samma flöden som manuella testfall 1–3
 
 Mer dokumentation finns i [`Documentation/`](Documentation/):
 

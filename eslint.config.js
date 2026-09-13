@@ -6,7 +6,13 @@ import reactRefresh from "eslint-plugin-react-refresh";
 
 export default [
   {
-    ignores: ["dist", "node_modules", "coverage"],
+    ignores: [
+      "dist",
+      "node_modules",
+      "coverage",
+      "playwright-report",
+      "test-results",
+    ],
   },
   {
     files: ["**/*.{js,jsx}"],
@@ -40,6 +46,14 @@ export default [
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "react-hooks/set-state-in-effect": "off",
+    },
+  },
+  {
+    files: ["e2e/**/*.js", "playwright.config.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
     },
   },
   {

@@ -11,7 +11,8 @@ Verify that the Todo app and Stockholm weather section work as intended without 
 | Unit | Vitest | Pure helpers in `taskUtils.js` and `weatherUtils.js` |
 | Component | Vitest + React Testing Library | Todo form, list, item — user-visible behaviour with mocked callbacks |
 | Integration (MSW) | Vitest + MSW | `taskApi`, `weatherApi`, and `WeatherSection` with mocked JSON Server / Open-Meteo |
-| Manual | Browser + JSON Server | End-to-end flows the assignment lists (create, filter, weather display) |
+| E2E | Playwright | Browser flows with JSON Server + Vite (auto-started); live Open-Meteo for weather smoke test |
+| Manual | Browser + JSON Server | Same flows as E2E; documented in `Manual-Test-Cases.md` |
 
 ## Automated test files
 
@@ -26,17 +27,28 @@ Verify that the Todo app and Stockholm weather section work as intended without 
 | `src/services/__tests__/weatherApi.integration.test.js` | MSW integration | 2 |
 | `src/components/__tests__/WeatherSection.integration.test.jsx` | MSW integration | 3 |
 
-**Total:** 46 automated tests (8 files).
+| `e2e/create-task.spec.js` | E2E | 1 |
+| `e2e/filters.spec.js` | E2E | 1 |
+| `e2e/weather.spec.js` | E2E | 1 |
+
+**Total:** 46 Vitest tests (8 files) + 3 Playwright E2E tests.
 
 ## Commands
 
 ```bash
-npm test              # run all tests once
+npm test              # run all Vitest tests once
 npm run test:coverage # coverage report (see coverage/index.html)
+npm run test:e2e      # Playwright E2E (starts JSON Server + Vite via config)
 npm run lint          # ESLint on app and test code
 ```
 
-Manual tests require:
+E2E uses an isolated `db.e2e.json` (reset from `e2e/fixtures/db.seed.json` before each run). First time on a machine:
+
+```bash
+npx playwright install chromium
+```
+
+Manual tests (without Playwright) require:
 
 ```bash
 npm run server   # terminal 1 — JSON Server on port 3001
@@ -45,8 +57,8 @@ npm run dev      # terminal 2 — Vite dev server
 
 ## Out of scope (documented risks)
 
-- Full browser end-to-end tests with JSON Server and Vite together in CI
-- Real Open-Meteo network in automated tests (mocked via MSW)
+- Playwright E2E in CI without a browser install step (local runs use `test:e2e`)
+- Stable weather assertions in Vitest (Open-Meteo is mocked via MSW; E2E weather uses the live API and may flake on network issues)
 - `App.jsx`, `FilterButtons`, `TodoSummary` component tests
 
 ## Pass criteria (G / VG)

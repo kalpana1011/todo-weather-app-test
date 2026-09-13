@@ -1,11 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Förbered presentation",
-      "completed": true
-    },
-    {
       "id": "2",
       "title": "Rätta inlämningar",
       "completed": true
@@ -24,6 +19,11 @@
       "title": "Component Test",
       "completed": false,
       "id": "cRJ69vh5gmw"
+    },
+    {
+      "title": "sadasd",
+      "completed": true,
+      "id": "VQR1GgLq5a4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
