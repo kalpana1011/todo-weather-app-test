@@ -1,7 +1,7 @@
 # Manual test cases
 
 **Tester:** Kalpana  
-**Date:** 2026-09-10  
+**Date:** 2026-09-13  
 **Environment:** macOS, Node ≥ 24, Chrome, `npm run server` + `npm run dev`
 
 ---
