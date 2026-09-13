@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "id": "e2e-active",
+      "title": "E2E Active Task",
+      "completed": false
+    },
+    {
+      "id": "e2e-done",
+      "title": "E2E Done Task",
+      "completed": true
+    }
+  ]
+}

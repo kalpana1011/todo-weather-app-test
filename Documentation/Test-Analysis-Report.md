@@ -14,12 +14,14 @@
 
 **Manual tests (3 cases)** in `Manual-Test-Cases.md` validate create-task flow, filters, and live weather display in the browser with JSON Server and Vite running.
 
+**E2E tests (3 cases)** in `e2e/` use Playwright with dual `webServer` startup (isolated `db.e2e.json` from `e2e/fixtures/db.seed.json`). They automate the same flows as the manual cases: add task, filters, and a live Open-Meteo smoke check for Stockholm weather and Klädtips. MSW integration tests remain the stable layer for weather logic; E2E complements them with a real browser and network.
+
 ## Remaining risks
 
-- **JSON Server / `taskApi`:** CRUD is covered by MSW integration tests, not by a live `db.json` in CI.
+- **JSON Server / `taskApi`:** CRUD is covered by MSW integration tests and E2E against `db.e2e.json`, not by CI against a shared `db.json`.
 - **App shell:** `App.jsx` wiring, retry button, and global error handling are untested.
 - **FilterButtons / TodoSummary:** Small presentational components have no dedicated RTL tests.
-- **Live weather:** Manual tests depend on Open-Meteo; automated weather tests use MSW only.
+- **Live weather:** E2E and manual tests depend on Open-Meteo; Vitest weather tests use MSW only (E2E may flake if the API or network is unavailable).
 - **A/B button variant:** Env-based label swap is not tested.
 
 These gaps are acceptable for the assignment scope; the highest-risk user flows (validation, list behaviour, weather fetch mapping) are covered.
