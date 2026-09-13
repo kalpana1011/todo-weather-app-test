@@ -26,5 +26,12 @@
       "id": "cRJ69vh5gmw"
     }
   ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
